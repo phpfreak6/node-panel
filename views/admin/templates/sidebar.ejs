@@ -2,7 +2,7 @@
     <nav aria-label="Main">
         <ul class="nav flex-column mt-2 has-active-border">
             <li class="nav-item <%= (segment[0]=='admin' && segment[1]=='dashboard')?'active':'' %>">
-                <a href="html/dashboard.html" class="nav-link">
+                <a href="<%= url('admin/dashboard') %>" class="nav-link">
                     <i class="nav-icon fa fa-tachometer-alt nav-icon-round bgc-primary-tp1"></i>
                     <span class="nav-text fadeable">
                         <span>Dashboard</span>

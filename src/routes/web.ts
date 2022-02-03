@@ -1,21 +1,17 @@
-/* Import Libraries */
-import express from 'express';
-
+import { Router } from 'express';
 // Controllers
 import AdminUserController from '../controllers/admin/UserController';
 // Middlewares
 import AdminAuth from '../middlewares/AdminAuth';
 import UrlProvider from '../middlewares/UrlProvider';
+const Route = Router({ mergeParams: true });
 
-const router = express.Router({ mergeParams: true });
-
-router.use(UrlProvider);// URL Segments Provider Middleware
-
+Route.use(UrlProvider);// URL Segments Provider Middleware
 // Public Admin Routes
-router.get('/admin/login', [AdminUserController.login]);
-router.post('/admin/login', [AdminUserController.login]);
+Route.get('/admin/login', [AdminUserController.login]);
+Route.post('/admin/login', [AdminUserController.login]);
 // Protected Admin Routes
-router.use(AdminAuth); // Admin Auth Middleware
-router.get('/admin/dashboard', [AdminUserController.dashboard]);
+Route.use(AdminAuth); // Admin Auth Middleware
+Route.get('/admin/dashboard', [AdminUserController.dashboard]);
 
-export default router;
+export default Route;

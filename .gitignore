@@ -12,5 +12,6 @@ logs
 results
 build
 dist
+sessions.db
 
 node_modules

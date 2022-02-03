@@ -35,7 +35,7 @@ app.set('view engine', view.engine);
 app.set('view cache', view.cache);
 
 /* Set Logger Options */
-// app.use(logger('dev'));
+app.use(logger('dev'));
 /* Set Logger Options */
 
 /* Set Session Options */

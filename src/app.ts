@@ -52,7 +52,8 @@ app.use(session({
         }
     }),
     secret: ['veryimportantsecret', 'notsoimportantsecret', 'highlyprobablysecret'],
-    resave: false, // 
+    resave: false,
+    rolling: true,
     saveUninitialized: false,
     name: "portal_session_id",
     genid: () => crypto.randomBytes(16).toString("hex"),

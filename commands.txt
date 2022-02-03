@@ -1,0 +1,7 @@
+Local For Watch Changes - 
+
+npx nodemon start -e ejs,js
+
+Another command to compile typescript files 
+
+npx tsc --watch

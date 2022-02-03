@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" style="
+    --scrollbar-width: 17px;
+    --moz-scrollbar-thin: 17px;
+    font-size: 0.925rem;
+  ">
+
+<head>
+    <%- include('../admin/templates/header_includes'); -%>
+        <style>
+            .body-container {
+                background-image: linear-gradient(#6baace, #264783);
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="body-container">
+        <div class="main-container container bgc-transparent">
+            <div class="main-content minh-100 justify-content-center">
+                <div class="p-2 p-md-4">
+                    <div class="row">
+                        <div style="border-radius: 20px" id="id-col-main"
+                            class="col-12 offset-lg-4 col-lg-4 py-lg-5 bgc-white px-0">
+                            <div class="mh-100 px-3 px-lg-0 pb-3">
+                                <div class="d-none d-lg-block col-md-6 offset-md-3 mt-lg-4 px-0">
+                                    <h4 class="text-dark-tp4 border-b-1 brc-secondary-l2 pb-1 text-130">
+                                        <center><strong>Blow Out</strong></center>
+                                    </h4>
+                                </div>
+                                <form method="POST" action="" autocomplete="off" class="form-row mt-4">
+                                    <div class="form-group col-sm-10 col-lg-10 offset-lg-1">
+                                        <div
+                                            class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
+                                            <input name="email" placeholder="Email" type="text"
+                                                class="form-control form-control-md pr-4 shadow-none"
+                                                id="id-login-username" />
+                                            <i class="fa fa-user text-grey-m2 ml-n4"></i>
+                                            <label class="floating-label text-grey-l1 ml-n3" for="id-login-username">
+                                                Email
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-10 col-lg-10 offset-lg-1">
+                                        <div
+                                            class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
+                                            <input name="password" placeholder="Password" type="password"
+                                                class="form-control form-control-md pr-4 shadow-none"
+                                                id="id-login-password" />
+                                            <i class="fa fa-key text-grey-m2 ml-n4"></i>
+                                            <label class="floating-label text-grey-l1 ml-n3" for="id-login-password">
+                                                Password
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-10 col-lg-10 offset-lg-1">
+                                        <button type="submit"
+                                            class="btn btn-primary btn-block px-4 btn-bold mt-2 mb-4">Sign In</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../admin/templates/footer_includes'); -%>
+</body>
+
+</html>

@@ -13,7 +13,7 @@ class UserController {
     }
 
     dashboard(req: Request, res: Response) {
-        let data: BaseDataObject;
+        let data: Partial<BaseDataObject> = {};
         data.title = 'Admin Dashboard';
         return res.render('admin/users/dashboard', data);
     }

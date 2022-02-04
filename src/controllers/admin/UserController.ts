@@ -2,14 +2,26 @@ import { Request, Response } from 'express';
 import { User } from './../../models/UserModel';
 import bcrypt from 'bcrypt';
 
+interface BaseDataObject {
+    title: string;
+}
+
 class UserController {
 
     constructor() {
-        console.log('Home Controller Constructor');
+        console.log('Admin User Controller Constructor');
     }
 
     dashboard(req: Request, res: Response) {
-        return res.render('admin/users/dashboard');
+        let data: BaseDataObject;
+        data.title = 'Admin Dashboard';
+        return res.render('admin/users/dashboard', data);
+    }
+
+    index(req: Request, res: Response) {
+        let data: Partial<BaseDataObject> = {};
+        data.title = 'Manage Users';
+        return res.render('admin/users/index', data);
     }
 
     login(req: Request, res: Response) {

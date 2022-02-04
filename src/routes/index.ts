@@ -9,6 +9,9 @@ import api from './api';
 
 const router = Router({ mergeParams: true });
 
+router.get('/', function (req, res) {
+    return res.json('Welcome To Express');
+});
 router.use("/", web);
 router.use("/api", api);
 

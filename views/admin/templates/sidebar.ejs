@@ -10,6 +10,15 @@
                 </a>
                 <b class="sub-arrow"></b>
             </li>
+            <li class="nav-item <%= (segment[0]=='admin' && segment[1]=='users' && segment[2]=='index')?'active':'' %>">
+                <a href="<%= url('admin/users/index') %>" class="nav-link">
+                    <i class="nav-icon fa fa-user nav-icon-round bgc-primary-tp1"></i>
+                    <span class="nav-text fadeable">
+                        <span>Manage Users</span>
+                    </span>
+                </a>
+                <b class="sub-arrow"></b>
+            </li>
         </ul>
     </nav>
 </div>

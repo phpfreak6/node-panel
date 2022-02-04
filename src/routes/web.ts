@@ -10,8 +10,12 @@ Route.use(UrlProvider);// URL Segments Provider Middleware
 // Public Admin Routes
 Route.get('/admin/login', [AdminUserController.login]);
 Route.post('/admin/login', [AdminUserController.login]);
+
 // Protected Admin Routes
 Route.use(AdminAuth); // Admin Auth Middleware
 Route.get('/admin/dashboard', [AdminUserController.dashboard]);
+
+// Admin User Routes
+Route.get('/admin/users/index', [AdminUserController.index]);
 
 export default Route;

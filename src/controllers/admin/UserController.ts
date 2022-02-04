@@ -17,6 +17,7 @@ class UserController {
             if (req.method == 'POST') {
                 let { email, password } = req.body;
                 req.session.auth = { email, password };
+                req.flash('success_message', 'Welcome Onboard');
                 return res.redirect(301, '/admin/dashboard');
             }
             return res.render('admin/users/login');

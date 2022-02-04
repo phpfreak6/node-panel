@@ -1,0 +1,26 @@
+<% if(error_message.length> 0){ %>
+    <script>
+        Swal.fire({
+            title: "<%=error_message %>",
+            icon: 'error',
+            toast: true,
+            position: 'top-end',
+            timer: 3000,
+            showCancelButton: false,
+            showConfirmButton: false
+        });
+    </script>
+    <% }%>
+        <% if(success_message.length> 0){ %>
+            <script>
+                Swal.fire({
+                    title: "<%=success_message %>",
+                    icon: 'success',
+                    toast: true,
+                    position: 'top-end',
+                    timer: 3000,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                });
+            </script>
+            <% }%>

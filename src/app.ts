@@ -11,20 +11,21 @@ import sqlite from 'better-sqlite3';
 import sequelize from 'sequelize';
 // import uuid from 'uuid';
 import crypto from 'crypto';
+import flash from 'connect-flash';
+import nocache from 'nocache';
 
 /* Import Files */
 import config from './config/app';
 import view from './config/view';
 import routes from './routes/index';
 
+// Middlewares
+import FlashMessagesProvider from './middlewares/FlashMessagesProvider';
+
 /* Initialize Express */
 const app = express();
 
-/* Connect Database */
-// console.log(config.mongodbUrl);
-// mongoose.connect(config.mongodbUrl)
-//     .then(() => console.log("Mongodb Connected"))
-//     .catch((err) => console.log("err", err));
+app.use(nocache());
 
 app.set('trust proxy', 1)
 
@@ -61,12 +62,13 @@ app.use(session({
 }));
 
 /* Set Session Options */
+app.use(cookieParser());
 
-
+app.use(flash());// Initialize Flash Messages
+app.use(FlashMessagesProvider); // Bind Flash Messages
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../public")));
 
 app.use(cors());

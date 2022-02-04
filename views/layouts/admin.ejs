@@ -10,38 +10,39 @@
 </head>
 
 <body>
-  <div class="body-container">
-    <div class="main-container">
-      <div id="sidebar" class="sidebar sidebar-white sidebar-fixed sidebar-backdrop expandable" data-swipe="true"
-        data-dismiss="true">
-        <div class="sidebar-inner">
-          <div class="d-none d-xl-flex sidebar-section-item m-0 fadeable-left fadeable-top">
-            <div class="fadeinable">
-              <div class="py-2 mx-1 border-b-1 brc-secondary-l3" id="sidebar-header-brand1">
-                <a class="navbar-brand text-140">
-                  <i class="fa fa-leaf text-success-m2"></i>
-                </a>
+  <%- include('../admin/templates/flash_messages'); -%>
+    <div class="body-container">
+      <div class="main-container">
+        <div id="sidebar" class="sidebar sidebar-white sidebar-fixed sidebar-backdrop expandable" data-swipe="true"
+          data-dismiss="true">
+          <div class="sidebar-inner">
+            <div class="d-none d-xl-flex sidebar-section-item m-0 fadeable-left fadeable-top">
+              <div class="fadeinable">
+                <div class="py-2 mx-1 border-b-1 brc-secondary-l3" id="sidebar-header-brand1">
+                  <a class="navbar-brand text-140">
+                    <i class="fa fa-leaf text-success-m2"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="fadeable w-100">
+                <div class="py-2 text-center mx-3 border-b-1 brc-secondary-l3" id="sidebar-header-brand2">
+                  <a class="navbar-brand ml-n2 text-140 text-grey-d2" href="#">Blow Out</a>
+                </div>
               </div>
             </div>
-            <div class="fadeable w-100">
-              <div class="py-2 text-center mx-3 border-b-1 brc-secondary-l3" id="sidebar-header-brand2">
-                <a class="navbar-brand ml-n2 text-140 text-grey-d2" href="#">Blow Out</a>
-              </div>
-            </div>
+            <%- include('../admin/templates/sidebar'); -%>
           </div>
-          <%- include('../admin/templates/sidebar'); -%>
+        </div>
+        <div role="main" class="main-content">
+          <%- include('../admin/templates/header'); -%>
+            <div class="page-content container">
+              <%- content %>
+            </div>
+            <%- include('../admin/templates/footer'); -%>
         </div>
       </div>
-      <div role="main" class="main-content">
-        <%- include('../admin/templates/header'); -%>
-          <div class="page-content container">
-            <%- content %>
-          </div>
-          <%- include('../admin/templates/footer'); -%>
-      </div>
     </div>
-  </div>
-  <%- include('../admin/templates/footer_includes'); -%>
+    <%- include('../admin/templates/footer_includes'); -%>
 </body>
 
 </html>

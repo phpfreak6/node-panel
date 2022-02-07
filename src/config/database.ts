@@ -1,8 +1,8 @@
-import { BuildOptions, DataTypes, Model, Sequelize } from "sequelize";
+import { Sequelize } from "sequelize";
 
-const db = 'expressapp'
-const username = 'root'
-const password = 'root'
+const db: string = 'blowout_express';
+const username: string = 'root';
+const password: string = '';
 
 export const sequelize = new Sequelize(db, username, password, {
     dialect: "mysql",

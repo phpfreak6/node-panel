@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
-import { User } from './../../models/UserModel';
-import bcrypt from 'bcrypt';
+import UserRepository from '../../repositories/UserRepository';
 
 interface BaseDataObject {
     title: string;
@@ -18,19 +17,24 @@ class UserController {
         return res.render('admin/users/dashboard', data);
     }
 
-    index(req: Request, res: Response) {
+    async index(req: Request, res: Response) {
         let data: Partial<BaseDataObject> = {};
         data.title = 'Manage Users';
         return res.render('admin/users/index', data);
     }
 
-    login(req: Request, res: Response) {
+    async login(req: Request, res: Response) {
         try {
             if (req.method == 'POST') {
                 let { email, password } = req.body;
-                req.session.auth = { email, password };
-                req.flash('success_message', 'Welcome Onboard');
-                return res.redirect(301, '/admin/dashboard');
+                let result = await UserRepository.checkUserLogin(email, password);
+                if (result !== false) {
+                    req.session.auth = result;
+                    req.flash('success_message', 'Welcome Onboard');
+                    return res.redirect(301, '/admin/dashboard');
+                }
+                req.flash('error_message', 'Incorrect Login Credentials');
+                return res.redirect('/admin/login');
             }
             return res.render('admin/users/login');
         } catch (error) {

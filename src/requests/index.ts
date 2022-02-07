@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { body, Result, ValidationError, validationResult } from 'express-validator';
+import { validationResult } from 'express-validator';
 
-export function validate(schemas: any) {
+function validate(schemas: any) {
     return async (req: Request, res: Response, next: NextFunction) => {
         await Promise.all(
             schemas.map(
@@ -18,3 +18,5 @@ export function validate(schemas: any) {
         return res.redirect(301, previousUrl);
     };
 }
+
+export default validate;

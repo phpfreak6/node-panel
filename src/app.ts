@@ -7,7 +7,6 @@ import logger from 'morgan';
 import cors from 'cors';
 import session from 'express-session';
 import sqlite from 'better-sqlite3';
-import sequelize from 'sequelize';
 import crypto from 'crypto';
 import flash from 'connect-flash';
 import nocache from 'nocache';
@@ -34,7 +33,7 @@ app.set('view engine', view.engine);
 app.set('view cache', view.cache);
 
 /* Set Logger Options */
-app.use(logger('dev'));
+// app.use(logger('dev'));
 /* Set Logger Options */
 
 /* Set Session Options */

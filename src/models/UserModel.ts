@@ -1,50 +1,57 @@
-import { BuildOptions, DataTypes, Model, Sequelize } from "sequelize";
+import { Model, DataTypes } from "sequelize";
+import { sequelize } from './../config/database';
 
-export interface UserAttributes {
-    id: number;
-    name: string;
-    email: string;
-    createdAt?: Date;
-    updatedAt?: Date;
+class UserModel extends Model {
+
+    constructor() {
+        super();
+        console.log('User Model Constructor');
+    }
+
+    declare id: number;
+    declare first_name: string;
+    declare last_name: string;
+    declare email: string;
+    declare password: string;
+    declare created_at: string | null;
+    declare updated_at: string | null;
 }
 
-export interface UserModel extends Model<UserAttributes>, UserAttributes {
-
-}
-
-export class User extends Model<UserModel, UserAttributes> {
-
-}
-
-export type UserStatic = typeof Model & {
-    new(values?: object, options?: BuildOptions): UserModel;
-};
-
-export function UserFactory(sequelize: Sequelize): UserStatic {
-    return <UserStatic>sequelize.define("users", {
+export default UserModel.init(
+    {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER.UNSIGNED,
             autoIncrement: true,
             primaryKey: true,
         },
+        first_name: {
+            type: new DataTypes.STRING(128),
+            allowNull: false,
+        },
+        last_name: {
+            type: new DataTypes.STRING(128),
+            allowNull: false,
+        },
         email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
-        name: {
-            type: DataTypes.STRING,
+            type: new DataTypes.STRING(128),
             allowNull: false,
         },
-        createdAt: {
-            type: DataTypes.DATE,
+        password: {
+            type: new DataTypes.STRING(128),
             allowNull: false,
-            defaultValue: DataTypes.NOW,
         },
-        updatedAt: {
-            type: DataTypes.DATE,
+        created_at: {
+            type: new DataTypes.DATE,
             allowNull: false,
-            defaultValue: DataTypes.NOW,
         },
-    });
-}
+        updated_at: {
+            type: new DataTypes.DATE,
+            allowNull: false,
+        },
+    },
+    {
+        tableName: "users",
+        timestamps: false,
+        sequelize
+    }
+);

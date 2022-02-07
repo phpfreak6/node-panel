@@ -1,7 +1,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
 <title>
-  <%= (title && (title.length> 0) ? title : '') %>
+  <%= typeof title !=='undefined' ? title:'' %>
 </title>
 <link rel="stylesheet" type="text/css" href="<%= url('assets/admin/theme/css/bootstrap.css') %>" />
 <link rel="stylesheet" type="text/css"
@@ -16,4 +16,6 @@
 <link rel="stylesheet" type="text/css" href="<%= url('assets/admin/theme/css/ace-themes.css') %>" />
 <link rel="stylesheet" type="text/css" href="<%= url('assets/admin/custom/custom.css') %>" />
 <script src="<%= url('assets/admin/theme/js/jquery.js') %>"></script>
-<script src="<%= url('assets/admin/theme/plugins/sweet-alert/sweet-alert.js') %>"></script>
+<link rel="stylesheet" type="text/css"
+  href="<%= url('assets/admin/theme/plugins/jquery-toast/jquery.toast.min.css') %>" />
+<script src="<%= url('assets/admin/theme/plugins/jquery-toast/jquery.toast.min.js') %>"></script>

@@ -1,26 +1,26 @@
 <% if(error_message.length> 0){ %>
     <script>
-        Swal.fire({
-            title: "<%=error_message %>",
+        $.toast({
+            heading: "<%=error_message %>",
+            allowToastClose: false,
             icon: 'error',
-            toast: true,
-            position: 'top-end',
-            timer: 3000,
-            showCancelButton: false,
-            showConfirmButton: false
-        });
+            position: 'top-right',
+            stack: false,
+            loader: false,
+            showHideTransition: 'slide'
+        })
     </script>
     <% }%>
         <% if(success_message.length> 0){ %>
             <script>
-                Swal.fire({
-                    title: "<%=success_message %>",
+                $.toast({
+                    heading: "<%=success_message %>",
+                    allowToastClose: false,
                     icon: 'success',
-                    toast: true,
-                    position: 'top-end',
-                    timer: 3000,
-                    showCancelButton: false,
-                    showConfirmButton: false
-                });
+                    position: 'top-right',
+                    stack: false,
+                    loader: false,
+                    showHideTransition: 'slide',
+                })
             </script>
             <% }%>
